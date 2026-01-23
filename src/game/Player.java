@@ -1,9 +1,8 @@
 package game;
 
-import java.util.Scanner;
-
 import game.skills.CraftingSkill;
 import game.skills.MiningSkill;
+import java.util.Scanner;
 
 public class Player {
     
@@ -20,8 +19,6 @@ public class Player {
 
     public Player() {
         this.PlayerLevel = 1;
-        this.PlayerExp = 0;
-        this.xpThreshold = 100;
         // this.inventory = new Inventory();
         this.craftingSkill = new CraftingSkill();
         this.miningSkill = new MiningSkill();
