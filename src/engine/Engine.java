@@ -1,11 +1,14 @@
 package engine;
 
 import game.Game;
+import game.Player;
+
 
 public class Engine {
     
     private boolean isRunning = false;
     private Game game;
+    private Player player;
 
     private double tickRate = 0.6;
     private int tickCount = 0;
@@ -16,11 +19,11 @@ public class Engine {
 
 
     public Engine(Game game) {
+
         this.game = game;
         this.lastUpdateTime = System.nanoTime();
         this.currentTime = System.nanoTime();
 
-        
     }
 
     public void update(Game game) {
@@ -32,8 +35,9 @@ public class Engine {
             lastUpdateTime = currentTime;
             accumulatedTime += delta;
 
-            while (accumulatedTime >= tickRate) {
-                game.update();
+            if (accumulatedTime >= tickRate) {
+                game.update(); // why?? This just goes back to Game which is what sent us here.
+                game.getPlayer().update(); // Updates player state each tick
                 tickCount++;
                 accumulatedTime -= tickRate;
             }

@@ -17,7 +17,7 @@ public class Game {
         player = new Player();
 
         while(isRunning) {
-            engine.update(this);
+            engine.update(this); // main game loop begins here (it seems)
         }
     }
 
@@ -27,12 +27,12 @@ public class Game {
     }
 
     public void update() {
-        // Update game logic here
+        // Update game class logic here
         System.out.println("Game Update Tick: " + engine.getTickCount());
-        // check player status - if any pending actions or conditions are met
-        player.update();
-        // check resource regeneration - ores, trees, etc.
-        
-        // process player input - from UI or command line
+
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }

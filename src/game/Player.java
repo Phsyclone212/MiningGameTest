@@ -11,6 +11,8 @@ public class Player {
     // private int PlayerExp = 0;
     // private int xpThreshold = 100;
 
+    private int actionDelay = 0;
+
     private boolean isBusy = false;
 
     // private Inventory inventory;
@@ -32,14 +34,21 @@ public class Player {
     public void update() {
         // is the player available?
         System.out.println("Player Update Tick");
-        while(!isBusy){
+        if(!isBusy){
             // means player is free to choose an action
             displayPlayerActions();
             actionInput();
 
+        } else {
+            // player is busy doing something
+            System.out.println("Player is currently busy...");
+            // check if action is complete - for now, we just free the player next tick
+            actionDelay--;
+            if(actionDelay <= 0) {
+                isBusy = false;
+                System.out.println("Player has completed their action and is now free.");
+            }
         }
-
-        isBusy = false; // reset for next tick
         
     }
 
@@ -61,6 +70,7 @@ public class Player {
                 System.out.println("You chose to Mine.");
                 // initiate mining action
                 miningManager.mine();
+                actionDelay = miningManager.getActionDelay();
                 isBusy = true;
                 break;
             case 2:
