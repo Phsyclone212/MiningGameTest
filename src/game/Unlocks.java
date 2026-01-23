@@ -1,4 +1,4 @@
-package MainPackage;
+package game;
 
 public class Unlocks {
 
