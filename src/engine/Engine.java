@@ -20,6 +20,12 @@ public class Engine {
         this.lastUpdateTime = System.nanoTime();
         this.currentTime = System.nanoTime();
 
+        
+    }
+
+    public void update(Game game) {
+        System.out.println("Engine Update Tick: " + tickCount);
+
         while(isRunning) {
             currentTime = System.nanoTime();
             delta = (currentTime - lastUpdateTime) / 1_000_000_000.0; // convert to seconds
@@ -32,12 +38,6 @@ public class Engine {
                 accumulatedTime -= tickRate;
             }
         }
-        
-    }
-
-    public void update(Game game) {
-        // Update game logic here.. maybe??
-        System.out.println("Engine Update Tick: " + tickCount);
     }
 
     public void start() {

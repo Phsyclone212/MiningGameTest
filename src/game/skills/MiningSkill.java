@@ -10,6 +10,11 @@ public class MiningSkill {
         
     }
 
+    public void mine() {
+        System.out.println("Mining in progress...");
+        // player will mine, gain xp based on what is found, and keep what is mined. This needs manager, not here.
+    }
+
     public void addXp(int xp) {
         this.miningXp += xp;
         checkLevelUp();

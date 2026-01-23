@@ -16,9 +16,8 @@ public class Game {
         System.out.println("Game started! (from Game constructor)");
         player = new Player();
 
-        while(isRunning){
-            engine.update(this); // will run ticks and keep track of nanotime, send to other classes as needed
-            
+        while(isRunning) {
+            engine.update(this);
         }
     }
 

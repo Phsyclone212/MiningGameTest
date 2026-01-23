@@ -1,5 +1,6 @@
 package game;
 
+import game.managers.MiningManager;
 import game.skills.CraftingSkill;
 import game.skills.MiningSkill;
 import java.util.Scanner;
@@ -17,11 +18,14 @@ public class Player {
     private CraftingSkill craftingSkill; // This is the crafting SKILL which holds it's own level, xp, etc.
     private MiningSkill miningSkill; // This is the mining SKILL which holds it's own level,
 
+    private MiningManager miningManager; // This is the mining MANAGER which handles mining actions, resources, etc.
+
     public Player() {
         this.PlayerLevel = 1;
         // this.inventory = new Inventory();
         this.craftingSkill = new CraftingSkill();
         this.miningSkill = new MiningSkill();
+        this.miningManager = new MiningManager(this.miningSkill);
 
     }
 
@@ -32,8 +36,10 @@ public class Player {
             // means player is free to choose an action
             displayPlayerActions();
             actionInput();
-            isBusy = true; // for testing, set to busy after displaying actions
+
         }
+
+        isBusy = false; // reset for next tick
         
     }
 
@@ -47,13 +53,15 @@ public class Player {
 
     public void actionInput() {
         Scanner sc = new Scanner(System.in);
-        System.out.print(" >> ");
+        System.out.print(">> ");
         int choice = sc.nextInt();
 
         switch(choice) {
             case 1:
                 System.out.println("You chose to Mine.");
                 // initiate mining action
+                miningManager.mine();
+                isBusy = true;
                 break;
             case 2:
                 System.out.println("You chose to Craft.");
