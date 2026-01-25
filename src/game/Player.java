@@ -31,10 +31,12 @@ public class Player {
 
     }
 
+
+    // Update player state each tick -- This is the stuff that will ALWAYS run every tick of the engine.
     public void update() {
         // is the player available?
         System.out.println("Player Update Tick");
-        if(!isBusy){
+        if(!isBusy) {
             // means player is free to choose an action
             displayPlayerActions();
             actionInput();
@@ -42,8 +44,10 @@ public class Player {
         } else {
             // player is busy doing something
             System.out.println("Player is currently busy...");
-            // check if action is complete - for now, we just free the player next tick
-            actionDelay--;
+            // check if action is complete - decrement delay
+            if(actionDelay > 0) { // only decrement if greater than 0, otherwise negative delays cause instant actions.
+                actionDelay--;
+            }
             if(actionDelay <= 0) {
                 isBusy = false;
                 System.out.println("Player has completed their action and is now free.");

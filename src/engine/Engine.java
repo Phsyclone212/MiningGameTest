@@ -35,9 +35,8 @@ public class Engine {
             lastUpdateTime = currentTime;
             accumulatedTime += delta;
 
-            if (accumulatedTime >= tickRate) {
-                game.update(); // why?? This just goes back to Game which is what sent us here.
-                game.getPlayer().update(); // Updates player state each tick
+            while(accumulatedTime >= tickRate) {
+                game.update(); // why?? This just goes back to Game which is what sent us here. <- because we need to check in on other things that game talks to, but with ticks.
                 tickCount++;
                 accumulatedTime -= tickRate;
             }
