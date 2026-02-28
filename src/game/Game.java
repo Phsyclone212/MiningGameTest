@@ -1,9 +1,8 @@
 package game;
 
 import engine.Engine;
-import frame.GameWindow;
 import frame.GamePanel;
-import game.Player;
+import frame.GameWindow;
 
 public class Game {
     

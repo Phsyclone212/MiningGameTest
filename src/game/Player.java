@@ -56,6 +56,8 @@ public class Player {
         
     }
 
+
+    // TO BE REMOVED AND REPLACED WITH MOUS AND KEYBOARD LISTENERS LATER - UI MENUS
     public void displayPlayerActions() {
         System.out.println("Available Player Actions:");
         System.out.println("1. Mine");

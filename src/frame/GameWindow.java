@@ -2,20 +2,19 @@ package frame;
 
 import javax.swing.JFrame;
 
-public class GameWindow {
-    private JFrame frame;
+public class GameWindow extends JFrame {
 
     public GameWindow (GamePanel gamePanel) {
         
         System.out.println("GameWindow created");
 
-        this.frame = new JFrame();
-        frame.add(gamePanel);
-        frame.setLocationRelativeTo(null);
-        frame.setResizable(false);
-        frame.pack();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+        setSize(1280, 720);
+        setTitle("A Mining Game");
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        add(gamePanel);
+        setVisible(true);
     }
 
 
