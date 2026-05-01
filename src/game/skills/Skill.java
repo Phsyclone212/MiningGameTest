@@ -43,7 +43,7 @@ public class Skill {
         this.xp = xp;
     }
     public void setXpThreshold(int threshold) {
-        this.xpThreshold = threshold;
+        xpThreshold = threshold;
     }
     public String getSkillName() {
         return skillName;
