@@ -22,3 +22,21 @@
 - waiting for input by default (Mining, Crafting, or Checking their Store (future addition))
 - Player clicks node -> success/fail based on level and difficulty -> gets ore -> Wait for input.
 - Player clicks craft -> menu opens with known/available recipes based on level and current owned resources -> click one -> calculates quality of new item and gives to Player -> list it for sale
+
+# Mineable Ore/Rock List (and req level)
+- Rocks (1)
+- Copper (5)
+- Tin (5)
+- Iron (15)
+- Silver (20)
+- Coal (30)
+- Granite (40)
+- Gold (40)
+- Gemstone Rocks (50)
+- Obsidian (70)
+- Dragonglass (85)
+
+## Crafting options
+# (Req level) Item Name -> required resources, Quality range (sometimes variable, sometimes flat)
+- (1) Rock Hammer -> 2 Rocks, 1-10
+- Sharpening Stone -> 5 Rocks, (3), 5

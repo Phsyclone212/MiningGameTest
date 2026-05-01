@@ -15,7 +15,7 @@ public class MiningManager {
     public void mine() {
         System.out.println("MiningManager: Handling mining action for player.");
         // Implement mining logic here
-        if(miningSkill.getMiningLevel() >= 1) {
+        if(miningSkill.getSkillLevel() >= 1) {
             System.out.println("MiningManager: Player is mining...");
             // Simulate mining action
             this.actionDelay = 6; // e.g., takes 6 ticks to mine
