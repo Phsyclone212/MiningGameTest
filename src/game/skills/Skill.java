@@ -9,14 +9,14 @@ public class Skill {
 
 
     public Skill(String name) {
-        this.skillName = name;
+        skillName = name;
     }
 
     public void checkLevelUp() {
         while (xp >= xpThreshold) {
             level++;
             xpThreshold = xpThreshold + (level * 100);
-            System.out.println("Congratulations! You've reached " + this.skillName + " Level " + this.level);
+            System.out.println("Congratulations! You've reached " + skillName + " Level " + level);
         }
     }
 
@@ -27,13 +27,13 @@ public class Skill {
 
     // Getters and Setters
     public int getSkillLevel() {
-        return this.level;
+        return level;
     }
     public int getSkillXp() {
-        return this.xp;
+        return xp;
     }
     public int getXpThreshold() {
-        return this.xpThreshold;
+        return xpThreshold;
     }
 
     public void setSkillLevel(int level) {
@@ -46,7 +46,7 @@ public class Skill {
         this.xpThreshold = threshold;
     }
     public String getSkillName() {
-        return this.skillName;
+        return skillName;
     }
     
 }
