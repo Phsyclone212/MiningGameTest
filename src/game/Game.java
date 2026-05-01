@@ -23,9 +23,6 @@ public class Game {
         gamePanel = new GamePanel(this);
         gameWindow = new GameWindow(gamePanel);
 
-        while(isRunning) {
-            engine.update(this); // main game loop - infinite
-        }
     }
 
     public void start() {
@@ -35,8 +32,7 @@ public class Game {
 
     public void update() {
         // Update game logic here
-        System.out.println("Game Update Tick: " + engine.getTickCount());
-        // player.update();
+        gamePanel.repaint();
 
     }
 

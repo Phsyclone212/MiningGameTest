@@ -29,9 +29,8 @@ public class GamePanel extends JPanel {
             // do we HAVE to go through the player to mine? NO. We aren't stuck to CLI anymore!
             status.setText("Mining...");
             
+
         });
 
     }
-
-    
 }

@@ -5,12 +5,19 @@ import javax.swing.*;
 
 public class CanvasPanel extends JPanel {
 
-    private static final int NODE_WIDTH = 50;
-    private static final int NODE_HEIGHT = 25;
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         // custom rendering options below
-        g.drawRect(20, 20, NODE_WIDTH, NODE_HEIGHT);
+        int padX = getWidth() / 30;
+        int padY = getHeight() / 20;
+
+        int nodeHeight = getHeight() / 10;
+        int nodeWidth = getWidth() / 10;
+        g.drawRect(padX, padY, nodeWidth, nodeHeight); /// nodes are going to be what players will click on to mine eventually.
+
+        g.drawRect(padX*2 + nodeWidth, padY, nodeWidth, nodeHeight);
+        g.drawRect(padX*3 + nodeWidth*2, padY, nodeWidth, nodeHeight);
+        g.drawRect(padX*4 + nodeWidth*3, padY, nodeWidth, nodeHeight);
     }
 }
