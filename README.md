@@ -36,7 +36,18 @@
 - Obsidian (70)
 - Dragonglass (85)
 
+# Ore Node loop/activity
+- Node exists and can be mined by someone with a level  >= reqLevel of it's ore.
+- Success is based on (miningLevel/reqLevel)*.1 <!-- temporary formula?? It scales kind of nicely in early levels, but previous nodes hit >=100% chances pretty quickly. Later levels this is bad. -->
+- After success, Player will receive ONE ore guaranteed. Respawn timer starts (N ticks).
+- Secondary loot table rolls for a GEM_GEODE (starts after Rocks, rarity decreases with higher tier rocks)
+- Node will wait N ticks before respawning.
+
 ## Crafting options
 # (Req level) Item Name -> required resources, Quality range (sometimes variable, sometimes flat)
-- (1) Rock Hammer -> 2 Rocks, 1-10
-- Sharpening Stone -> 5 Rocks, (3), 5
+- (1) Crude Sharpening Stone -> 5 Rocks, 1;
+- (5) Rock Hammer -> 2 Rocks, 1-10;
+- (5) Bronze Ingot -> 2 Copper + 2 Tin, 5;
+- (5) Bronze Pickaxe -> 3 Bronze Ingots, 5-25;
+- (7) Bronze Sword -> 5 Bronze Ingots, 5-25;
+- (10) Bronze Axe -> 5 Bronze Ingots, 5-25;
