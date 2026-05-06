@@ -27,7 +27,6 @@ public class Game {
     public void update() {
         // Update game logic here
         player.tick();
-        gamePanel.tick();
         gamePanel.repaint();
 
     }
