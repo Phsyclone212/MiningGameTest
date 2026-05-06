@@ -13,7 +13,7 @@ public class GamePanel extends JPanel {
 
     public GamePanel(Game game) {
         System.out.println("GamePanel created.");
-        this.canvasPanel = new CanvasPanel(game.getPlayer().getMiningManager());
+        this.canvasPanel = new CanvasPanel(game.getMiningManager());
 
         this.setLayout(new BorderLayout());
         this.add(status, BorderLayout.NORTH);

@@ -3,6 +3,7 @@ package game;
 import engine.Engine;
 import frame.GamePanel;
 import frame.GameWindow;
+import game.managers.MiningManager;
 
 public class Game {
     
@@ -32,5 +33,9 @@ public class Game {
 
     public Player getPlayer() {
         return player;
+    }
+
+    public MiningManager getMiningManager() {
+        return player.getMiningManager();
     }
 }
