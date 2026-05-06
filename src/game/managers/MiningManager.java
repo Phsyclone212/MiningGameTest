@@ -14,24 +14,25 @@ public class MiningManager {
         populateOreNodes();
     }
 
-    public void attemptMine(OreNode node) {
+    public String attemptMine(OreNode node) {
 
         if(!node.isDepleted()){
             if(node.canBeMined(miningSkill.getSkillLevel())) {
                 
-                if(Math.random() > .70){
+                if(Math.random() < .70){ //70% base success rate (will make more dynamic later using player level and ore level)
                     node.mine();
                     miningSkill.gainExp(node.getOreType().getExp());
+                    return "You successfully mined the " + node.getOreType().getOreName() + " ore!";
                 } else {
-                    System.out.println("You failed to mine the ore.");
+                    return "You failed to mine the ore.";
                 }
                 
             } else {
                 // Inform the player that their mining level is too low
-                System.out.println("Your mining level is too low to mine this ore. Required level: " + node.getOreType().getReqLevel());
-            }
+                    return "Your mining level is too low to mine this ore. Required level: " + node.getOreType().getReqLevel();
+                }
         } else {
-            System.out.println(node.depletedMessage());
+            return node.depletedMessage();
         }
     }
 
@@ -39,9 +40,10 @@ public class MiningManager {
         // This method will create ore nodes and add them to the oreNodes array
         // For simplicity, we'll just create a few ore nodes with hardcoded values
         oreNodes = new OreNode[] {
-            new OreNode(OreType.COPPER_ORE, 100, 100, 50, 50),
-            new OreNode(OreType.IRON_ORE, 200, 100, 50, 50),
-            new OreNode(OreType.GOLD_ORE, 300, 100, 50, 50)
+            new OreNode(OreType.ROCK, 50, 100, 50, 50),
+            new OreNode(OreType.COPPER_ORE, 150, 100, 50, 50),
+            new OreNode(OreType.IRON_ORE, 250, 100, 50, 50),
+            new OreNode(OreType.GOLD_ORE, 350, 100, 50, 50)
         };
     }
 
@@ -55,4 +57,5 @@ public class MiningManager {
     public OreNode[] getOreNodes() {
         return oreNodes;
     }
+
 }

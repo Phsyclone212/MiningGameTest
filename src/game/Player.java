@@ -6,7 +6,7 @@ import game.skills.MiningSkill;
 
 public class Player {
     
-    private int playerLevel = 1;
+    private int playerLevel;
     // private int PlayerExp = 0;
     // private int xpThreshold = 100;
 

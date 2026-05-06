@@ -3,10 +3,10 @@ package game.world;
 public class OreNode {
     
     private final OreType oreType;
-    private int posX;
-    private int posY;
-    private int width;
-    private int height;
+    private final int posX;
+    private final int posY;
+    private final int width;
+    private final int height;
     private boolean isDepleted;
     private final int respawnTime; // Time in ticks for the ore node to respawn after being depleted
     private int timeLeftToRespawn; // Time left in ticks for the ore node to respawn
@@ -24,15 +24,12 @@ public class OreNode {
 
 
     public void mine(){
-        // Logic to mine the ore node
+
         if(!isDepleted) {
-            // If mining is successful, set isDepleted to true and start respawn timer
             isDepleted = true;
             timeLeftToRespawn = respawnTime;
-        } else {
-            // Inform the player that the ore node is depleted
-            depletedMessage();
         }
+        
     }
 
     public boolean canBeMined(int playerMiningLevel) {

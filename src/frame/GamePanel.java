@@ -9,11 +9,10 @@ public class GamePanel extends JPanel {
 
     private CanvasPanel canvasPanel;
     private JLabel status = new JLabel("Awaiting selection...");
-    private JButton mineBtn = new JButton("Mine");
 
     public GamePanel(Game game) {
         System.out.println("GamePanel created.");
-        this.canvasPanel = new CanvasPanel(game.getMiningManager());
+        this.canvasPanel = new CanvasPanel(game.getMiningManager(), this::updateStatus);
 
         this.setLayout(new BorderLayout());
         this.add(status, BorderLayout.NORTH);
@@ -22,16 +21,10 @@ public class GamePanel extends JPanel {
         
         this.add(canvasPanel, BorderLayout.CENTER);
 
-        JPanel buttons = new JPanel();
-        this.add(buttons, BorderLayout.SOUTH);
-        buttons.add(mineBtn);
-        
-        mineBtn.addActionListener(e -> {
-            // do we HAVE to go through the player to mine? NO. We aren't stuck to CLI anymore!
-            status.setText("Mining...");
-            
-
-        });
-
     }
+
+    public void updateStatus(String message) {
+        status.setText(message);
+    }
+    
 }
