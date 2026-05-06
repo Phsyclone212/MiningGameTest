@@ -7,9 +7,9 @@ import javax.swing.*;
 
 public class CanvasPanel extends JPanel {
 
-    public OreNode[] oreNodes;
+    private OreNode[] oreNodes;
 
-    public MiningManager miningManager;
+    private MiningManager miningManager;
 
     public CanvasPanel(MiningManager miningManager){
         this.miningManager = miningManager;
