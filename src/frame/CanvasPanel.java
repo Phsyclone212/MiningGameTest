@@ -1,9 +1,20 @@
 package frame;
 
+import game.managers.MiningManager;
+import game.world.OreNode;
 import java.awt.*;
 import javax.swing.*;
 
 public class CanvasPanel extends JPanel {
+
+    public OreNode[] oreNodes;
+
+    public MiningManager miningManager;
+
+    public CanvasPanel(MiningManager miningManager){
+        this.miningManager = miningManager;
+        this.oreNodes = miningManager.getOreNodes();
+    }
 
     @Override
     public void paintComponent(Graphics g) {
@@ -14,10 +25,18 @@ public class CanvasPanel extends JPanel {
 
         int nodeHeight = getHeight() / 10;
         int nodeWidth = getWidth() / 10;
-        g.drawRect(padX, padY, nodeWidth, nodeHeight); /// nodes are going to be what players will click on to mine eventually.
-
-        g.drawRect(padX*2 + nodeWidth, padY, nodeWidth, nodeHeight);
-        g.drawRect(padX*3 + nodeWidth*2, padY, nodeWidth, nodeHeight);
-        g.drawRect(padX*4 + nodeWidth*3, padY, nodeWidth, nodeHeight);
+        
+        // draw ore nodes
+        if(oreNodes != null) {
+            for(OreNode oreNode : oreNodes) {
+                if(!oreNode.isDepleted()) {
+                    g.setColor(oreNode.getOreType().getColor());
+                    g.fillRect(padX + oreNode.getPosX(), padY + oreNode.getPosY(), nodeWidth, nodeHeight);
+                } else {
+                    g.setColor(Color.GRAY);
+                    g.fillRect(padX + oreNode.getPosX(), padY + oreNode.getPosY(), nodeWidth, nodeHeight);
+                }
+            }
+        }
     }
 }

@@ -7,12 +7,13 @@ import javax.swing.*;
 
 public class GamePanel extends JPanel {
 
-    private CanvasPanel canvasPanel = new CanvasPanel();
+    private CanvasPanel canvasPanel;
     private JLabel status = new JLabel("Awaiting selection...");
     private JButton mineBtn = new JButton("Mine");
 
     public GamePanel(Game game) {
         System.out.println("GamePanel created.");
+        this.canvasPanel = new CanvasPanel(game.getPlayer().getMiningManager());
 
         this.setLayout(new BorderLayout());
         this.add(status, BorderLayout.NORTH);

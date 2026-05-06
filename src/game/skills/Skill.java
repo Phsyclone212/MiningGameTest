@@ -20,8 +20,8 @@ public class Skill {
         }
     }
 
-    public void addXp(int xp) {
-        this.xp += xp;
+    public void gainExp(int exp) {
+        this.xp += exp;
         checkLevelUp();
     }
 
