@@ -22,7 +22,7 @@ public class MiningManager {
                 if(Math.random() < .70){ //70% base success rate (will make more dynamic later using player level and ore level)
                     node.mine();
                     miningSkill.gainExp(node.getOreType().getExp());
-                    return "You successfully mined the " + node.getOreType().getOreName() + " ore!";
+                    return "You successfully mined the " + node.getOreType().getName() + " ore!";
                 } else {
                     return "You failed to mine the ore.";
                 }
@@ -41,6 +41,8 @@ public class MiningManager {
         // For simplicity, we'll just create a few ore nodes with hardcoded values
         oreNodes = new OreNode[] {
             new OreNode(OreType.ROCK, 50, 100, 50, 50),
+            new OreNode(OreType.ROCK, 50, 150, 50, 50),
+            new OreNode(OreType.ROCK, 50, 50, 50, 50),
             new OreNode(OreType.COPPER_ORE, 150, 100, 50, 50),
             new OreNode(OreType.IRON_ORE, 250, 100, 50, 50),
             new OreNode(OreType.GOLD_ORE, 350, 100, 50, 50)

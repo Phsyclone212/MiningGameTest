@@ -1,8 +1,9 @@
 package game.world;
 
+import game.Item;
 import java.awt.Color;
 
-public enum OreType {
+public enum OreType implements Item {
     ROCK("Rocks", 1, 5, 10, Color.GRAY),
     COPPER_ORE("Copper Ore", 5, 10, 20, Color.ORANGE),
     TIN_ORE("Tin Ore", 5, 10, 20, Color.LIGHT_GRAY),
@@ -19,7 +20,7 @@ public enum OreType {
     private final int reqLevel;
     private final int exp;
     private final int respawnTime; // Time in ticks for the ore node to respawn after being depleted
-    private final Color color;
+    private Color color;
 
     OreType(String oreName, int reqLevel, int exp, int respawnTime, Color color) {
         this.oreName = oreName;
@@ -29,7 +30,8 @@ public enum OreType {
         this.color = color;
     }
 
-    public String getOreName() {
+    @Override
+    public String getName() {
         return oreName;
     }
     public int getReqLevel() {
@@ -43,5 +45,8 @@ public enum OreType {
     }
     public Color getColor() {
         return color;
+    }
+    public void deplete() {
+        this.color = Color.DARK_GRAY; // Change color to indicate depletion (for example)
     }
 }
