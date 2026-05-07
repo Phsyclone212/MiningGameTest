@@ -27,7 +27,6 @@ public class OreNode {
 
         if(!isDepleted) {
             isDepleted = true;
-            oreType.deplete(); // Change the ore's color to indicate depletion (for example)
             timeLeftToRespawn = respawnTime;
         }
         

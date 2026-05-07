@@ -17,10 +17,10 @@ public class Player {
 
     public Player() {
         this.playerLevel = 1;
-        // this.inventory = new Inventory();
+        this.inventory = new Inventory();
         this.craftingSkill = new CraftingSkill();
         this.miningSkill = new MiningSkill();
-        this.miningManager = new MiningManager(this.miningSkill);
+        this.miningManager = new MiningManager(this.miningSkill, this.inventory);
 
     }
 
@@ -32,5 +32,9 @@ public class Player {
 
     public MiningManager getMiningManager() {
         return miningManager;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 }

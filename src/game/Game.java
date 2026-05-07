@@ -38,4 +38,8 @@ public class Game {
     public MiningManager getMiningManager() {
         return player.getMiningManager();
     }
+
+    public Inventory getInventory() {
+        return player.getInventory();
+    }
 }

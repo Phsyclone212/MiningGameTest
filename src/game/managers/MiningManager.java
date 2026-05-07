@@ -1,5 +1,6 @@
 package game.managers;
 
+import game.Inventory;
 import game.skills.MiningSkill;
 import game.world.OreNode;
 import game.world.OreType;
@@ -8,9 +9,11 @@ public class MiningManager {
     
     private MiningSkill miningSkill;
     private OreNode[] oreNodes;
+    private Inventory inventory;
 
-    public MiningManager(MiningSkill miningSkill) {
+    public MiningManager(MiningSkill miningSkill, Inventory inventory) {
         this.miningSkill = miningSkill;
+        this.inventory = inventory;
         populateOreNodes();
     }
 
@@ -21,6 +24,7 @@ public class MiningManager {
                 
                 if(Math.random() < .70){ //70% base success rate (will make more dynamic later using player level and ore level)
                     node.mine();
+                    inventory.addItem(node.getOreType(), 1);
                     miningSkill.gainExp(node.getOreType().getExp());
                     return "You successfully mined the " + node.getOreType().getName() + " ore!";
                 } else {

@@ -46,7 +46,5 @@ public enum OreType implements Item {
     public Color getColor() {
         return color;
     }
-    public void deplete() {
-        this.color = Color.DARK_GRAY; // Change color to indicate depletion (for example)
-    }
+    
 }

@@ -34,4 +34,8 @@ public class Inventory {
     public int getItemQuantity(Item item) {
         return inventory.getOrDefault(item, 0);
     }
+
+    public HashMap<Item, Integer> getInventory() {
+        return inventory;
+    }
 }

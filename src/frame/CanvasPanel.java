@@ -32,7 +32,6 @@ public class CanvasPanel extends JPanel {
                 for(OreNode oreNode : oreNodes) {
                     if(mouseX >= padX + oreNode.getPosX() && mouseX <= padX + oreNode.getPosX() + oreNode.getWidth() &&
                        mouseY >= padY + oreNode.getPosY() && mouseY <= padY + oreNode.getPosY() + oreNode.getHeight()) {
-                        miningManager.attemptMine(oreNode);
                         onStatus.accept(miningManager.attemptMine(oreNode));
                         repaint();
                         break;
@@ -57,7 +56,7 @@ public class CanvasPanel extends JPanel {
                     g.setColor(oreNode.getOreType().getColor());
                     g.fillRect(padX + oreNode.getPosX(), padY + oreNode.getPosY(), oreNode.getWidth(), oreNode.getHeight());
                 } else {
-                    g.setColor(Color.GRAY);
+                    g.setColor(oreNode.getOreType().getColor().darker());
                     g.fillRect(padX + oreNode.getPosX(), padY + oreNode.getPosY(), oreNode.getWidth(), oreNode.getHeight());
                 }
             }

@@ -9,6 +9,7 @@ public class GamePanel extends JPanel {
 
     private CanvasPanel canvasPanel;
     private JLabel status = new JLabel("Awaiting selection...");
+    private JPanel inventoryPanel;
 
     public GamePanel(Game game) {
         System.out.println("GamePanel created.");
@@ -20,6 +21,9 @@ public class GamePanel extends JPanel {
         this.setFocusable(true);
         
         this.add(canvasPanel, BorderLayout.CENTER);
+
+        inventoryPanel = new InventoryPanel(game.getInventory());
+        this.add(inventoryPanel, BorderLayout.EAST);
 
     }
 
