@@ -47,6 +47,7 @@ public class MiningManager {
             new OreNode(OreType.ROCK, 50, 100, 50, 50),
             new OreNode(OreType.ROCK, 50, 150, 50, 50),
             new OreNode(OreType.ROCK, 50, 50, 50, 50),
+            new OreNode(OreType.ROCK, 100, 50, 50, 50),
             new OreNode(OreType.COPPER_ORE, 150, 100, 50, 50),
             new OreNode(OreType.IRON_ORE, 250, 100, 50, 50),
             new OreNode(OreType.GOLD_ORE, 350, 100, 50, 50)
